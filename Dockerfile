@@ -1,5 +1,7 @@
 FROM nginx:alpine
 
-COPY index.html /usr/share/nginx/html/
+RUN apk add --no-cache bash
 
-EXPOSE 80
+COPY . /usr/share/nginx/html
+
+CMD ["/bin/sh", "-c", "envsubst < /usr/share/nginx/html/env.template.js > /usr/share/nginx/html/env.js && nginx -g 'daemon off;'"]

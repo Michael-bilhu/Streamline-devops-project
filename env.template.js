@@ -4,12 +4,10 @@ services:
     ports:
       - "80:80"
 
-    environment:
-      APP_NAME: StreamLine
-      ENVIRONMENT: Production
-
   redis:
     image: redis
+    ports:
+      - "6379:6379"
     volumes:
       - redis-data:/data
 

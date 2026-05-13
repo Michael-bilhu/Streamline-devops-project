@@ -133,6 +133,18 @@
 
 <body>
   <main class="hero">
+<script src="env.js"></script>
+
+<h2 id="app-name"></h2>
+<p id="environment"></p>
+
+<script>
+  document.getElementById("app-name").innerText =
+    "Application: " + window.APP_CONFIG.APP_NAME;
+
+  document.getElementById("environment").innerText =
+    "Environment: " + window.APP_CONFIG.ENVIRONMENT;
+</script>
     <div class="badge">LIVE DEVOPS PORTFOLIO PROJECT</div>
 
     <h1>StreamLine <span>CI/CD</span><br />Deployment System</h1>
@@ -176,7 +188,7 @@
       <div class="card">
         <h3>CI/CD Automation</h3>
         <p>
-          Jenkins connects to EC2 through SSH and automates deployment commands for repeatable releases.
+          Jenkins connects to EC2 through SSH and automates deployment commands for repeatable releases every 2 min.
         </p>
       </div>
     </section>
