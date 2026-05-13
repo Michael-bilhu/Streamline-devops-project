@@ -1,9 +1,12 @@
 services:
-       frontend:
-        build:  .
-         ports:
-             -"8085:80"
 
-redis:
+  web:
+    build: .
+    container_name: streamline-web
+
+    ports:
+      - "8085:80"
+
+  redis:
     image: redis:alpine
-
+    container_name: streamline-redis
