@@ -138,6 +138,22 @@
 <h2 id="app-name"></h2>
 <p id="environment"></p>
 
+              <h2>Backend API Test</h2>
+
+<button onclick="loadMessage()">Get Backend Message</button>
+
+<p id="api-message"></p>
+
+<script>
+async function loadMessage() {
+    const response = await fetch('/api/message');
+    const data = await response.json();
+
+    document.getElementById('api-message').innerText =
+        data.message;
+}
+</script>
+
 <script>
   document.getElementById("app-name").innerText =
     "Application: " + window.APP_CONFIG.APP_NAME;

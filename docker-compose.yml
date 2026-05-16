@@ -3,10 +3,13 @@ services:
     build: .
     ports:
       - "80:80"
+    depends_on:
+      - backend
 
-    environment:
-      APP_NAME: StreamLine
-      ENVIRONMENT: Production
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
 
   redis:
     image: redis
