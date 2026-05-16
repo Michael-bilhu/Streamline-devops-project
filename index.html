@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamLine DevOps</title>
+
   <style>
     * {
       margin: 0;
@@ -20,9 +21,9 @@
     }
 
     .hero {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding-top: 70px;
+      padding-top: 60px;
       text-align: center;
     }
 
@@ -36,10 +37,11 @@
       margin-bottom: 25px;
       font-size: 14px;
       letter-spacing: 1px;
+      font-weight: bold;
     }
 
     h1 {
-      font-size: 72px;
+      font-size: 70px;
       line-height: 1.05;
       margin-bottom: 25px;
     }
@@ -49,7 +51,7 @@
     }
 
     .subtitle {
-      max-width: 760px;
+      max-width: 780px;
       margin: auto;
       font-size: 21px;
       color: #cbd5e1;
@@ -62,7 +64,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .step {
@@ -74,9 +76,66 @@
       font-weight: bold;
     }
 
+    .api-section {
+      margin: 45px auto;
+      max-width: 650px;
+      padding: 28px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .api-section h2 {
+      color: #38bdf8;
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    .api-section p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .api-button {
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .api-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    #api-message {
+      margin-top: 18px;
+      font-size: 19px;
+      color: #5eead4;
+      font-weight: bold;
+    }
+
+    .config-box {
+      margin: 20px auto 40px;
+      max-width: 650px;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(34, 197, 94, 0.10);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #bbf7d0;
+      font-weight: bold;
+    }
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
       gap: 22px;
       margin-top: 40px;
     }
@@ -102,6 +161,30 @@
       font-size: 15px;
     }
 
+    .architecture {
+      margin-top: 60px;
+      padding: 35px;
+      border-radius: 24px;
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      text-align: left;
+    }
+
+    .architecture h2 {
+      color: #38bdf8;
+      margin-bottom: 22px;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .architecture pre {
+      white-space: pre-wrap;
+      color: #dbeafe;
+      font-size: 17px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
     .status {
       margin-top: 55px;
       padding: 18px;
@@ -120,12 +203,20 @@
     }
 
     @media (max-width: 700px) {
-      h1 {
-        font-size: 44px;
-      }
-
       body {
         padding: 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .architecture pre {
+        font-size: 14px;
       }
     }
   </style>
@@ -133,41 +224,13 @@
 
 <body>
   <main class="hero">
-<script src="env.js"></script>
-
-<h2 id="app-name"></h2>
-<p id="environment"></p>
-
-              <h2>Backend API Test</h2>
-
-<button onclick="loadMessage()">Get Backend Message</button>
-
-<p id="api-message"></p>
-
-<script>
-async function loadMessage() {
-    const response = await fetch('/api/message');
-    const data = await response.json();
-
-    document.getElementById('api-message').innerText =
-        data.message;
-}
-</script>
-
-<script>
-  document.getElementById("app-name").innerText =
-    "Application: " + window.APP_CONFIG.APP_NAME;
-
-  document.getElementById("environment").innerText =
-    "Environment: " + window.APP_CONFIG.ENVIRONMENT;
-</script>
     <div class="badge">LIVE DEVOPS PORTFOLIO PROJECT</div>
 
     <h1>StreamLine <span>CI/CD</span><br />Deployment System</h1>
 
     <p class="subtitle">
       A real cloud deployment project built with Linux, AWS EC2, Docker,
-      Docker Compose, GitHub, Jenkins, SSH, and automated CI/CD workflows.
+      Docker Compose, GitHub, Jenkins, SSH, Nginx reverse proxy, and automated CI/CD workflows.
     </p>
 
     <div class="flow">
@@ -177,6 +240,24 @@ async function loadMessage() {
       <div class="step">→ AWS EC2</div>
       <div class="step">→ Docker Compose</div>
       <div class="step">→ Live Website</div>
+    </div>
+
+    <section class="api-section">
+      <h2>Backend API Integration</h2>
+      <p>
+        This frontend calls a backend Node.js API through an Nginx reverse proxy.
+      </p>
+
+      <button class="api-button" onclick="loadMessage()">
+        Test Backend API
+      </button>
+
+      <p id="api-message"></p>
+    </section>
+
+    <div class="config-box">
+      <p id="app-name">Application: Loading...</p>
+      <p id="environment">Environment: Loading...</p>
     </div>
 
     <section class="cards">
@@ -190,32 +271,90 @@ async function loadMessage() {
       <div class="card">
         <h3>Dockerized Application</h3>
         <p>
-          The website is packaged using a Dockerfile and served through an Nginx container.
+          The frontend is packaged using a Dockerfile and served through an Nginx container.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Backend API</h3>
+        <p>
+          A Node.js Express backend provides API responses and runs as a separate container.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Nginx Reverse Proxy</h3>
+        <p>
+          Nginx serves the frontend and routes API requests to the backend service internally.
         </p>
       </div>
 
       <div class="card">
         <h3>Docker Compose Stack</h3>
         <p>
-          The infrastructure runs multiple services: a web container and a Redis container.
+          Docker Compose manages multiple services: frontend, backend API, and Redis.
         </p>
       </div>
 
       <div class="card">
         <h3>CI/CD Automation</h3>
         <p>
-          Jenkins connects to EC2 through SSH and automates deployment commands for repeatable releases every 2 min.
+          Jenkins detects GitHub changes, connects to EC2 through SSH, and redeploys the app automatically.
         </p>
       </div>
     </section>
 
+    <section class="architecture">
+      <h2>Architecture Flow</h2>
+      <pre>
+Developer
+↓
+GitHub Repository
+↓
+Jenkins Pipeline
+↓
+SSH into AWS EC2
+↓
+Docker Compose
+├── Nginx Frontend / Reverse Proxy
+├── Node.js Backend API
+└── Redis Container
+↓
+Live Application
+      </pre>
+    </section>
+
     <div class="status">
-      ✅ StreamLine is live, containerized, and running on AWS EC2.
+      ✅ StreamLine is live, containerized, automated, and running on AWS EC2.
     </div>
 
     <footer>
-      Built by Michael Bilhu — Junior DevOps Engineer Portfolio Project 1
+      Built by Michael Bilhu — Junior DevOps Engineer Portfolio Project
     </footer>
   </main>
+
+  <script src="env.js"></script>
+
+  <script>
+    async function loadMessage() {
+      try {
+        const response = await fetch('/api/message');
+        const data = await response.json();
+
+        document.getElementById('api-message').innerText = data.message;
+      } catch (error) {
+        document.getElementById('api-message').innerText =
+          'Backend API request failed. Check container logs or reverse proxy config.';
+      }
+    }
+
+    if (window.APP_CONFIG) {
+      document.getElementById('app-name').innerText =
+        'Application: ' + window.APP_CONFIG.APP_NAME;
+
+      document.getElementById('environment').innerText =
+        'Environment: ' + window.APP_CONFIG.ENVIRONMENT;
+    }
+  </script>
 </body>
 </html>
