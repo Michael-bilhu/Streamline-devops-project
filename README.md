@@ -112,3 +112,29 @@ This project demonstrates practical understanding of:
 - Terraform infrastructure provisioning
 - Load balancing
 - Health checks & self-healing containers
+
+---
+
+# Project Screenshots
+
+## Live Website
+
+![Live Website](screenshots/website.png)
+
+---
+
+## Jenkins CI/CD Pipeline
+
+![Jenkins Pipeline](screenshots/jenkins-success.png)
+
+---
+
+## Running Docker Containers
+
+![Docker Containers](screenshots/docker-ps.png)
+
+---
+
+## GitHub Repository Structure
+
+![GitHub Repository](screenshots/github-repo.png)
