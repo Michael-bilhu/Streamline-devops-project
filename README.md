@@ -119,22 +119,22 @@ This project demonstrates practical understanding of:
 
 ## Live Website
 
-![Live Website](screenshots/website.png)
+![Live Website](screenshots/website.png.png)
 
 ---
 
 ## Jenkins CI/CD Pipeline
 
-![Jenkins Pipeline](screenshots/jenkins-success.png)
+![Jenkins Pipeline](screenshots/jenkins-success.png.png)
 
 ---
 
 ## Running Docker Containers
 
-![Docker Containers](screenshots/docker-ps.png)
+![Docker Containers](screenshots/docker-ps.png.png)
 
 ---
 
 ## GitHub Repository Structure
 
-![GitHub Repository](screenshots/github-repo.png)
+![GitHub Repository](screenshots/github-repo.png.png)
