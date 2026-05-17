@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StreamLine DevOps</title>
+  <title>StreamLine DevOps Platform</title>
 
   <style>
     * {
@@ -14,36 +14,37 @@
     }
 
     body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1e3a8a, #020617 55%);
-      color: white;
+      background: radial-gradient(circle at top, #172554, #020617 55%);
+      color: #ffffff;
       padding: 40px;
     }
 
-    .hero {
-      max-width: 1150px;
+    .container {
+      max-width: 1200px;
       margin: auto;
-      padding-top: 60px;
+    }
+
+    .hero {
       text-align: center;
+      padding: 70px 20px 50px;
     }
 
     .badge {
       display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 20px;
       border-radius: 999px;
-      color: #93c5fd;
-      background: rgba(255,255,255,0.06);
-      margin-bottom: 25px;
-      font-size: 14px;
-      letter-spacing: 1px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #7dd3fc;
       font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
     }
 
     h1 {
-      font-size: 70px;
-      line-height: 1.05;
-      margin-bottom: 25px;
+      font-size: 64px;
+      line-height: 1.08;
+      margin-bottom: 24px;
     }
 
     h1 span {
@@ -51,106 +52,62 @@
     }
 
     .subtitle {
-      max-width: 780px;
+      max-width: 850px;
       margin: auto;
-      font-size: 21px;
       color: #cbd5e1;
+      font-size: 21px;
       line-height: 1.7;
-      margin-bottom: 45px;
+    }
+
+    .section {
+      margin-top: 55px;
+      padding: 32px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .section h2 {
+      color: #38bdf8;
+      margin-bottom: 22px;
+      font-size: 30px;
+      text-align: center;
     }
 
     .flow {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 14px;
-      margin-bottom: 50px;
+      margin-top: 25px;
     }
 
     .step {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
       padding: 14px 18px;
       border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
       color: #e0f2fe;
       font-weight: bold;
     }
 
-    .api-section {
-      margin: 45px auto;
-      max-width: 650px;
-      padding: 28px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-
-    .api-section h2 {
-      color: #38bdf8;
-      margin-bottom: 14px;
-      font-size: 28px;
-    }
-
-    .api-section p {
-      color: #cbd5e1;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .api-button {
-      padding: 13px 26px;
-      border-radius: 10px;
-      border: none;
-      background: linear-gradient(135deg, #38bdf8, #2563eb);
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .api-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
-    }
-
-    #api-message {
-      margin-top: 18px;
-      font-size: 19px;
-      color: #5eead4;
-      font-weight: bold;
-    }
-
-    .config-box {
-      margin: 20px auto 40px;
-      max-width: 650px;
-      padding: 18px;
-      border-radius: 16px;
-      background: rgba(34, 197, 94, 0.10);
-      border: 1px solid rgba(34, 197, 94, 0.35);
-      color: #bbf7d0;
-      font-weight: bold;
-    }
-
-    .cards {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.75);
+      padding: 26px;
+      border-radius: 20px;
+      background: rgba(2, 6, 23, 0.72);
       border: 1px solid rgba(148, 163, 184, 0.25);
-      border-radius: 22px;
-      padding: 28px;
-      text-align: left;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     }
 
     .card h3 {
-      color: #38bdf8;
+      color: #67e8f9;
       margin-bottom: 12px;
       font-size: 21px;
     }
@@ -161,61 +118,78 @@
       font-size: 15px;
     }
 
-    .architecture {
-      margin-top: 60px;
-      padding: 35px;
-      border-radius: 24px;
-      background: rgba(2, 6, 23, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      text-align: left;
-    }
-
-    .architecture h2 {
-      color: #38bdf8;
-      margin-bottom: 22px;
-      text-align: center;
-      font-size: 30px;
-    }
-
-    .architecture pre {
+    pre {
       white-space: pre-wrap;
+      text-align: center;
       color: #dbeafe;
       font-size: 17px;
       line-height: 1.8;
+      background: rgba(2, 6, 23, 0.7);
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .api-section {
       text-align: center;
     }
 
+    .api-button {
+      margin-top: 18px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .api-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    #api-message {
+      margin-top: 18px;
+      font-size: 20px;
+      color: #5eead4;
+      font-weight: bold;
+    }
+
     .status {
-      margin-top: 55px;
+      margin-top: 35px;
       padding: 18px;
       border-radius: 16px;
       background: rgba(34, 197, 94, 0.12);
       border: 1px solid rgba(34, 197, 94, 0.35);
       color: #bbf7d0;
+      text-align: center;
       font-weight: bold;
     }
 
     footer {
-      margin-top: 70px;
+      margin-top: 60px;
       text-align: center;
-      color: #64748b;
+      color: #94a3b8;
       font-size: 14px;
     }
 
     @media (max-width: 700px) {
       body {
-        padding: 24px;
+        padding: 22px;
       }
 
       h1 {
-        font-size: 42px;
+        font-size: 40px;
       }
 
       .subtitle {
-        font-size: 18px;
+        font-size: 17px;
       }
 
-      .architecture pre {
+      pre {
         font-size: 14px;
       }
     }
@@ -223,29 +197,36 @@
 </head>
 
 <body>
-  <main class="hero">
-    <div class="badge">LIVE DEVOPS PORTFOLIO PROJECT</div>
+  <div class="container">
 
-    <h1>StreamLine <span>CI/CD</span><br />Deployment System</h1>
+    <section class="hero">
+      <div class="badge">LIVE DEVOPS + KUBERNETES PORTFOLIO PROJECT</div>
 
-    <p class="subtitle">
-      A real cloud deployment project built with Linux, AWS EC2, Docker,
-      Docker Compose, GitHub, Jenkins, SSH, Nginx reverse proxy, and automated CI/CD workflows.
-    </p>
+      <h1>
+        StreamLine <span>Cloud-Native</span><br />
+        CI/CD Deployment Platform
+      </h1>
+<p class="subtitle">
+        A real DevOps project built with Linux, Docker, Docker Compose, Jenkins,
+        Docker Hub, Kubernetes, Services, Ingress, Nginx reverse proxy, backend API,
+        and automated deployment workflows.
+      </p>
 
-    <div class="flow">
-      <div class="step">GitHub</div>
-      <div class="step">→ Jenkins</div>
-      <div class="step">→ SSH</div>
-      <div class="step">→ AWS EC2</div>
-      <div class="step">→ Docker Compose</div>
-      <div class="step">→ Live Website</div>
-    </div>
+      <div class="flow">
+        <div class="step">GitHub</div>
+        <div class="step">→ Jenkins</div>
+        <div class="step">→ Docker Build</div>
+        <div class="step">→ Docker Hub</div>
+        <div class="step">→ Kubernetes</div>
+        <div class="step">→ Rolling Update</div>
+      </div>
+    </section>
 
-    <section class="api-section">
+    <section class="section api-section">
       <h2>Backend API Integration</h2>
       <p>
-        This frontend calls a backend Node.js API through an Nginx reverse proxy.
+        This frontend calls a Node.js backend API through Kubernetes service networking
+        and Nginx reverse proxy routing.
       </p>
 
       <button class="api-button" onclick="loadMessage()">
@@ -255,56 +236,7 @@
       <p id="api-message"></p>
     </section>
 
-    <div class="config-box">
-      <p id="app-name">Application: Loading...</p>
-      <p id="environment">Environment: Loading...</p>
-    </div>
-
-    <section class="cards">
-      <div class="card">
-        <h3>Cloud Deployment</h3>
-        <p>
-          Hosted on an AWS EC2 Ubuntu server and exposed publicly through HTTP traffic on port 80.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Dockerized Application</h3>
-        <p>
-          The frontend is packaged using a Dockerfile and served through an Nginx container.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Backend API</h3>
-        <p>
-          A Node.js Express backend provides API responses and runs as a separate container.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Nginx Reverse Proxy</h3>
-        <p>
-          Nginx serves the frontend and routes API requests to the backend service internally.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Docker Compose Stack</h3>
-        <p>
-          Docker Compose manages multiple services: frontend, backend API, and Redis.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>CI/CD Automation</h3>
-        <p>
-          Jenkins detects GitHub changes, connects to EC2 through SSH, and redeploys the app automatically.
-        </p>
-      </div>
-    </section>
-
-    <section class="architecture">
+    <section class="section">
       <h2>Architecture Flow</h2>
       <pre>
 Developer
@@ -313,27 +245,144 @@ GitHub Repository
 ↓
 Jenkins Pipeline
 ↓
-SSH into AWS EC2
+Build Docker Images
 ↓
-Docker Compose
-├── Nginx Frontend / Reverse Proxy
-├── Node.js Backend API
-└── Redis Container
+Push Images to Docker Hub
 ↓
-Live Application
+Kubernetes Cluster
+├── Frontend Deployment
+│   └── Frontend Pods
+├── Backend Deployment
+│   └── Backend Pods
+├── Frontend Service
+├── Backend Service
+└── Ingress Controller
+↓
+Live Cloud-Native Application
+      </pre>
+    </section>
+
+    <section class="section">
+      <h2>Kubernetes Traffic Flow</h2>
+      <pre>
+Browser
+↓
+Minikube Tunnel / Ingress
+↓
+Frontend Service
+↓
+Frontend Pods
+↓
+Nginx Reverse Proxy
+↓
+Backend Service
+↓
+Backend Pods
+↓
+Node.js Express API
+      </pre>
+    </section>
+
+    <section class="section">
+      <h2>What This Project Demonstrates</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Linux Foundation</h3>
+          <p>
+            Project managed from Ubuntu terminal using Linux commands, file navigation,
+            SSH concepts, and command-line workflows.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Docker Containerization</h3>
+          <p>
+            Frontend and backend applications are packaged into Docker images for
+            consistent deployment across environments.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Docker Hub Registry</h3>
+          <p>
+            Application images are pushed to Docker Hub so Kubernetes can pull
+            versioned deployment artifacts.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kubernetes Deployments</h3>
+          <p>
+            Deployments manage desired state, replicas, pod lifecycle, rolling updates,
+            and self-healing behavior.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kubernetes Services</h3>
+          <p>
+            Services provide stable networking so frontend pods can communicate with
+            backend pods without using unstable pod IPs.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Ingress Routing</h3>
+          <p>
+            Ingress routes external traffic into Kubernetes services, similar to a
+            production reverse proxy.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Jenkins CI/CD</h3>
+          <p>
+            Jenkins automates the build, push, and Kubernetes rollout process instead
+            of requiring manual deployment commands.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Self-Healing Infrastructure</h3>
+          <p>
+            Kubernetes automatically recreates pods when they fail, keeping the desired
+            number of replicas running.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Deployment Lifecycle</h2>
+      <pre>
+Code Change
+↓
+Jenkins Build Starts
+↓
+Docker Image Created
+↓
+Image Pushed to Docker Hub
+↓
+Kubernetes Deployment Restarted
+↓
+Old Pods Terminated
+↓
+New Pods Created
+↓
+Application Updated
       </pre>
     </section>
 
     <div class="status">
-      ✅ StreamLine is live, containerized, automated, and running on AWS EC2.
+✅ StreamLine is running as a multi-service Kubernetes application with CI/CD automation.
     </div>
 
     <footer>
       Built by Michael Bilhu — Junior DevOps Engineer Portfolio Project
     </footer>
-  </main>
 
-  <script src="env.js"></script>
+  </div>
 
   <script>
     async function loadMessage() {
@@ -344,16 +393,8 @@ Live Application
         document.getElementById('api-message').innerText = data.message;
       } catch (error) {
         document.getElementById('api-message').innerText =
-          'Backend API request failed. Check container logs or reverse proxy config.';
+          'Backend API request failed. Check Kubernetes services, pods, or reverse proxy config.';
       }
-    }
-
-    if (window.APP_CONFIG) {
-      document.getElementById('app-name').innerText =
-        'Application: ' + window.APP_CONFIG.APP_NAME;
-
-      document.getElementById('environment').innerText =
-        'Environment: ' + window.APP_CONFIG.ENVIRONMENT;
     }
   </script>
 </body>
